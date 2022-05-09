@@ -9,4 +9,3 @@ COPY . .
 
 RUN npm init -y
 RUN npm install
-RUN git remote add origin https://Lecogoni@bitbucket.org/lecogoni/begreen-plant-api.git
