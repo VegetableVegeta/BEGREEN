@@ -1,0 +1,21 @@
+REPO BEGREEN-PLANT-API
+
+git clone https://Lecogoni@bitbucket.org/lecogoni/begreen-plant-api.git
+
+git remote add origin https://Lecogoni@bitbucket.org/lecogoni/begreen-plant-api.git
+
+REPO BEGREEN-USER-API
+
+git clone https://Lecogoni@bitbucket.org/lecogoni/begreen-user-api.git
+
+git remote add origin https://Lecogoni@bitbucket.org/lecogoni/begreen-user-api.git
+git push -u origin master
+
+
+
+REPO BEGREEN-REACT-FRONT
+
+git clone https://Lecogoni@bitbucket.org/lecogoni/begreen-react-front.git
+
+git remote add origin https://Lecogoni@bitbucket.org/lecogoni/begreen-react-front.git
+git push -u origin master

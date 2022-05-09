@@ -1,0 +1,194 @@
+/* Mobile first !! */
+@media screen and (max-width: 1200px) {
+	.promotions {
+	  padding-top: 40px !important;
+	}
+	.email{
+		font-size: 0.85rem;
+	}
+	.bouton{
+		padding: 0 !important;
+	}
+	
+  }
+
+.nav-table{
+	background-color: #5cb13591;
+	
+}
+
+.tutorTable{
+    margin: 0 !important;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+a.navbar-brand{
+	padding-left: 20px;
+}
+a.nav-link{
+	padding-right: 20px !important;
+}
+
+.plusIcon {
+    width: 40px;
+    height: 40px;
+}
+
+.editIcon {
+    width: 24px;
+    height: 24px;
+	line-height: 12px;
+}
+
+
+.liste{
+  vertical-align: middle !important;
+	font-size: 1.3rem;
+}
+
+
+
+
+.bouton{
+	padding: 10px !important;
+	vertical-align: middle !important;
+}
+
+.noselect{
+	margin: auto;
+}
+
+.delete {
+	width: 24px;
+  	height: 24px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	background: rgb(255, 54, 54);
+	border: none;
+	border-radius: 5px;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+	background: #ff5757;
+}
+
+.delete, .delete span {
+	transition: 600ms;
+}
+
+.delete .text {
+	transform: translateX(0);
+	color: white;
+	font-family: $principalfont;
+  font-size: 0.8em;
+}
+
+.delete .icon {
+	position: absolute;
+	transform: translateX(-8px);
+	height: 40px;
+	width: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.delete svg {
+	width: 18px;
+	fill: #eee;
+}
+
+.delete:hover {
+	background: #ff3636;
+	padding-bottom: 2px;
+	width: 26px;
+	height: 26px;
+	fill: #eee;
+}
+
+
+
+.delete:hover .icon {
+	transform: translateX(-6px);
+	border-left: none;
+}
+
+.delete:focus {
+	outline: none;
+}
+
+
+
+
+.edit {
+	
+	width: 24px;
+  	height: 24px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	background: red;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+	background: #4c99f6;
+}
+
+.edit, .edit span {
+	transition: 600ms;
+}
+
+.edit .text {
+	transform: translateX(0);
+	color: white;
+	font-family: $principalfont;
+  font-size: 0.8em;
+}
+
+.edit .icon {
+	position: absolute;
+	transform: translateX(-7px);
+	height: 40px;
+	width: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.edit img {
+	padding-bottom: 2px;
+	width: 20px;
+	height: 22px;
+	fill: #eee;
+	transform: translateX(0);
+}
+
+
+.edit img:hover {
+	padding-bottom: 2px;
+	fill: #eee;
+}
+
+.edit:hover {
+	background: #0f79fb;
+	
+	height: 30px;
+	width: 30px;
+}
+
+.edit:hover .text {
+	color: transparent;
+}
+
+.edit:hover .icon {
+	
+	border-left: none;
+	transform: translateX(-4px);
+}
+
+.edit:focus {
+	outline: none;
+}

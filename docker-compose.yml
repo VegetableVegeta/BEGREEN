@@ -1,0 +1,125 @@
+version: '3.8'
+
+networks:
+  default:
+      name: begreen-network
+
+services:
+
+  ## USER SERVICES ###########################
+
+  # BACKEND USER NODEJS
+
+  node:
+    build:
+      context: ./init-user-backend
+      dockerfile: Dockerfile
+    container_name: begreen-user-backend-node
+    image: begreen-node-express-user-api 
+    ports:
+      - '9010:9010'
+    
+    depends_on:
+      - mysqluser 
+    tty: true
+
+  # DB USER MYSQL
+
+  mysqluser:
+    build:
+      context: ./init-user-mysql
+      dockerfile: Dockerfile
+    platform: linux/x86_64
+    image: begreen-mysql-db
+    container_name: begreen-user-mysql
+    command: --default-authentication-plugin=mysql_native_password --innodb-use-native-aio=0
+    restart: always
+    environment: 
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: user_db
+        MYSQL_USER: begreen
+        MYSQL_PASSWORD: begreen
+    volumes: 
+      - ./init:/docker-entrypoint-initdb.d
+    ports:
+      - '3306:3306'
+
+
+
+  ## PLANT SERVICES ###########################
+
+  # DB PLANT QUIZ MYSQL
+
+  mysqlplant:
+    build:
+      context: ./init-plant-mysql
+      dockerfile: Dockerfile
+    image: begreen-plant-mysql
+    platform: linux/x86_64
+    container_name: begreen-plant-mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: plant_db
+      MYSQL_USER: begreen
+      MYSQL_PASSWORD: begreen
+    ports:
+      - '33061:3306'
+
+
+  # BACKEND PLANT QUIZ NODEJS
+
+  app:
+    build:
+      context: ./init-plant-backend
+      dockerfile: Dockerfile
+    container_name: begreen-plant-backend-node
+    image: begreen-node-express-plant-api
+    ports:
+      - '9012:9012'
+    depends_on:
+      - mysqlplant
+    tty: true
+
+
+  ## REACT FRONT SERVICES ###########################
+
+
+  front:
+    build:
+      context: ./init-react-front
+      dockerfile: Dockerfile
+    container_name: begreen-react-front
+    image: begreen-react-image
+    command: npm start
+    ports:
+      - '3000:3000'
+
+
+  ## USER-QUIZ SERVICES ###########################
+
+  # mongodb user-quiz
+
+  # mongodb:
+  #   container_name: mongodb
+  #   image: mongo:5.0
+  #   restart: always
+  #   ports:
+  #     - 27017:27017
+  #   volumes:
+  #     - ~/apps/mongo:/data/db
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: mongo
+  #     MONGO_INITDB_ROOT_PASSWORD: mongo
+  #     MONGO_INITDB_DATABASE: mongo
+
+  
+  # adminer
+
+  adminer:
+    image: adminer
+    container_name: begreen-adminer
+    restart: always
+    ports: 
+        - 8080:8080

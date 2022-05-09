@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&display=swap');
+
+
+/* Variables font */
+$principalfont: 'Montserrat', sans-serif;
+$alternativefont: 'Roboto', sans-serif;
+$italicfont: 'Beau Rivage', sans-serif;
+
+
+/* Variables couleurs */
+$darkgreen: #006b31;
+$lightgreen: #5CB135;
+$darkgrey: #54595f;  
+$white: #f5f3f4;
+
+
+/* Settings de base */
+* {
+    padding: 0;
+    margin: 0;
+    
+}
+
+body{
+    overflow-x: hidden;
+}
+table{
+    box-shadow: 4px 5px 6px 5px rgba(0, 0, 0, 0.087);
+}
+
+h1{
+    padding: 22px;
+    padding-bottom: 12px !important;
+    font-family: $principalfont;
+    transform:translateX(10px);
+    transition: 4000ms;
+} h1:hover{
+    transform:translateX(20px);
+    transition: 4000ms;
+}
